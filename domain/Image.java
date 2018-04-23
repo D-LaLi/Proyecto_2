@@ -5,7 +5,7 @@ package domain;
  *
  * @author Eduardo
  */
-public class Imagen {
+public class Image {
     
     
     

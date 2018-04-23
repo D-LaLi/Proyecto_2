@@ -1,14 +1,10 @@
 
 package graphics;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -17,30 +13,32 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Albin Hernández Rivera | Carnet: B68200
+ * @author Albin Hernández Rivera | Carné: B68200
  *         
  */
+
 public class MenuPanel extends JPanel implements ActionListener {
     
-    private final JButton insert_button;
-    private final ImageIcon insert_icon;
+    private JButton insert_button;
     private JFileChooser fileChooser;
     private ImageContainer ic;
+    private JPanel toolBox;
+    private JButton rotateRight;
+    private JButton rotateLeft;
+    private JButton delete;
+    private JButton flipHorizontal;
+    private JButton flipVertical;
     
-    @SuppressWarnings("LeakingThisInConstructor")
     public MenuPanel() {
-        
-        //Se inicializa el contenedor de imagenes
+    	
+    	initComponents();
+           
+        // Se inicializa el contenedor de imagenes
         ic = new ImageContainer();
         
-        // Se inicializa JFileChooser y valida que solo pueda cargar imagenes de
-        // tipo jpg y png
-        fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileNameExtensionFilter("Imagenes", "jpg", "png"));
-        fileChooser.setAcceptAllFileFilterUsed(false);
         
         // Se selecciona el color
-        Color color = new Color(66, 48, 117);
+        Color color = new Color(28,96,119);
         setBackground(color);
         
         // Se define el layout para este panel
@@ -50,42 +48,79 @@ public class MenuPanel extends JPanel implements ActionListener {
         // Alineamiento de los componentes
         fl.setAlignment(FlowLayout.LEFT);
         
-        // Icono para el insert_button
-        insert_icon = new ImageIcon("insert_icon.png");
-        
-        // Boton para insertar una nueva imagen
-        insert_button = new JButton("Insert image");
-        
         // Se indica quien escuchará las acciones
         insert_button.addActionListener(this);
         
-        add(insert_button);
+        setToolBoxPanel();
         
+        add(insert_button);
+        add(toolBox);
     }//fin constructor
+    
+    
+    public void initComponents() {
+    	
+    	toolBox = new JPanel();
+    	fileChooser = new JFileChooser();
+    	insert_button = new JButton(new ImageIcon("src/icons/add_image.png"));
+    	rotateRight = new JButton(new ImageIcon("src/icons/rotate_right.png"));
+        rotateLeft = new JButton(new ImageIcon("src/icons/rotate_left.png"));
+        delete = new JButton(new ImageIcon("src/icons/delete.png"));
+        flipHorizontal = new JButton(new ImageIcon("src/icons/flip_horizontal.png"));
+        flipVertical = new JButton(new ImageIcon("src/icons/flip_vertical.png")); 
+        
+        // Se agregan mensajes de indicaci�n a cada boton
+        insert_button.setToolTipText("Insertar imagen");
+        rotateRight.setToolTipText("Rotar a la derecha");
+        rotateLeft.setToolTipText("Rotar a la izquierda");
+        delete.setToolTipText("Borrar");
+        flipHorizontal.setToolTipText("Voltear horizontalmente");
+        flipVertical.setToolTipText("Voltear verticalmente");
+        
+        // Se inicializa JFileChooser y valida que solo pueda cargar imagenes de
+        // tipo jpg y png
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Imagenes", "jpg", "png"));
+        fileChooser.setAcceptAllFileFilterUsed(false);
+    }
+    
+    //Se configura toolBox y se a�aden sus componentes
+    private void setToolBoxPanel() {
+    	
+    	Color color = new Color(12, 74, 95);
+    	toolBox.setBackground(color);
+    	
+    	toolBox.add(rotateRight);
+    	toolBox.add(rotateLeft);
+    	toolBox.add(flipHorizontal);
+    	toolBox.add(flipVertical);
+    	toolBox.add(delete);	
+    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        // Se pregunta quién está ejecutando la acción
+        // Se pregunta quienn est� ejecutando la acci�n
         if(e.getSource() == insert_button) {
-            int returnVal = fileChooser.showOpenDialog(new RootPanel());
+            int returnVal = fileChooser.showOpenDialog(new MainPanel());
             
             if(returnVal == JFileChooser.APPROVE_OPTION){
                 ic.setPath(fileChooser.getSelectedFile().getPath());
                 
-                // Se actualiza el panel con la imagen cargada
+                // Se revalida el JPanel
                 ic.revalidate();
-                ic.repaint();
+                ic.repaint();     
             }
         }        
     }//fin actionPerformed
     
-    //Métodos de acceso
+    //M�todos de acceso
     public ImageContainer getIc() {
         return ic;
     }
 
     public void setIc(ImageContainer ic) {
         this.ic = ic;
-    }      
-}
+    } 
+    
+}//fin MenuPanel

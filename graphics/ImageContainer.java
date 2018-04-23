@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Albin Hern√°ndez Rivera | Carnet: B68200
+ * @author Albin Hern·nndez Rivera | CarnÈ: B68200
  */
 
 //Esta clase representa el panel en el que se cargar√° la imagen
@@ -19,25 +19,24 @@ public class ImageContainer extends JPanel {
     
     public ImageContainer() {       
         Color color = new Color(110, 106, 123);
-        setBackground(color);     
+        setBackground(color);         
     }  
     
     
     
-    // Implementaci√≥n del m√©todo paintComponent
+    // ImplementaciÛn del mÈtodo paintComponent
     @Override
     public void paintComponent(Graphics g) {
         
         super.paintComponent(g);
         
         ImageFile imageFile = new ImageFile(path);
+ 
+        g.drawImage(imageFile.loadAnImage(), 5, 5,  null);  
         
-        g.drawImage(imageFile.loadAnImage(), 5, 5, 450, 300, null);  
+        //g.drawLine(5, 5, 5, 300);
         
-        g.drawLine(5, 5, 5, 300);
     }// fin paintComponent   
-    
-    
 
     
     // M√©todos de acceso

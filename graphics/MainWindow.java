@@ -1,16 +1,14 @@
 
 package graphics;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
- * @author Albin HernÃ¡ndez Rivera | Carnet: B68200
+ * @author Albin Hernánndez Rivera | Carné: B68200
  *         
  */
 
@@ -22,7 +20,7 @@ public class MainWindow extends JFrame {
     
     private final int SCREEN_WIDTH;
     private final int SCREEN_HEIGHT;
-    private RootPanel root;
+    private MainPanel root;
     
     //Constructor
     public MainWindow() {
@@ -49,7 +47,7 @@ public class MainWindow extends JFrame {
         Image myIcon = myScreen.getImage("palette.png");
         setIconImage(myIcon);
         
-        root = new RootPanel();
+        root = new MainPanel();
         
         //se carga el panel principal
         add(root);

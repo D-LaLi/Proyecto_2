@@ -5,7 +5,7 @@ import graphics.MainWindow;
 
 /**
  *
- * @author Albin HernÃ¡ndez Rivera | Carnet: B68200
+ * @author Albin Hernández Rivera | Carné: B68200
  *         
  */
 public class Main {
@@ -14,7 +14,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MainWindow  main_window = new MainWindow();
+        @SuppressWarnings("unused")
+		MainWindow  main_window = new MainWindow();
         //main_window.setVisible(true);
     }
     

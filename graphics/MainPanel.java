@@ -2,32 +2,31 @@
 package graphics;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
  *
- * @author Albin Hern√°ndez Rivera | Carnet: B68200
+ * @author Albin Hern√°ndez Rivera | CarnÈ: B68200
  *         
  */
-public class RootPanel extends JPanel {
+public class MainPanel extends JPanel {
     
     private MenuPanel menuPanel;
 
-    public RootPanel() {       
+    public MainPanel() {       
         
         // Se define el layout para este panel
         setLayout(new BorderLayout());
         
         menuPanel = new MenuPanel();
         
-        // Se a√±ade la barra del menu principal
+        // Se aÒade la barra del menu principal
         add(menuPanel, BorderLayout.PAGE_START);
         
         // Se instancia el contenedor de imagenes
         ImageContainer ic = menuPanel.getIc();
         
         add(ic,  BorderLayout.CENTER);     
-    }
-    
+        
+    } 
 }
