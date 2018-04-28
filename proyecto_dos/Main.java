@@ -1,11 +1,11 @@
 
 package proyecto_dos;
 
-import graphics.MainWindow;
+import graphics.MainFrame;
 
 /**
  *
- * @author Albin Hernández Rivera | Carné: B68200
+ * @author Albin Hernï¿½ndez Rivera | Carnï¿½: B68200
  *         
  */
 public class Main {
@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
         @SuppressWarnings("unused")
-		MainWindow  main_window = new MainWindow();
+		MainFrame  main_window = new MainFrame();
         //main_window.setVisible(true);
     }
     

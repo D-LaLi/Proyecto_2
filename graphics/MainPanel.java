@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Albin HernÃ¡ndez Rivera | Carné: B68200
+ * @author Albin HernÃ¡ndez Rivera | Carnï¿½: B68200
  *         
  */
 public class MainPanel extends JPanel {
@@ -20,11 +20,11 @@ public class MainPanel extends JPanel {
         
         menuPanel = new MenuPanel();
         
-        // Se añade la barra del menu principal
+        // Se aï¿½ade la barra del menu principal
         add(menuPanel, BorderLayout.PAGE_START);
         
         // Se instancia el contenedor de imagenes
-        ImageContainer ic = menuPanel.getIc();
+        ImagePanel ic = menuPanel.getImagePanel();
         
         add(ic,  BorderLayout.CENTER);     
         

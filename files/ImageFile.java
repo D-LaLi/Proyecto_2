@@ -20,6 +20,12 @@ public class ImageFile {
         this.path = path;
         img = null;
     }  
+
+    public ImageFile() {
+        // Constructor vacio
+        path = "";
+        img = null;
+    }
     
     // Se obtiene una imagen a partir de una dirección en el directorio 
     public BufferedImage loadAnImage() {
@@ -31,4 +37,16 @@ public class ImageFile {
             return null;
         }
     }//fin loadAnImage 
+    
+    // Métodos de acceso
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+    
+    
 }
